@@ -3,69 +3,43 @@ import { FaReact, FaNodeJs, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare } from 'r
 
 function Skills() {
   return (
-    <section id="skills" className="py-20 bg-white">
+    <section 
+      id="skills" 
+      className="py-20 bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e]
+ text-white"
+    >
       <h2 
-        className="text-4xl font-bold text-center mb-12" 
+        className="text-4xl font-bold text-center mb-12 text-white" 
         data-aos="fade-up"
+        style={{
+          textShadow: '0 0 1px rgba(255,255,255,0.7), 0 0 6px rgba(255,255,255,0.5)',
+          fontFamily: '"Special Gothic Expanded One", sans-serif',
+        }}
       >
         My Skills
       </h2>
 
       <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
-        {/* Skill Card */}
-        <div 
-          className="flex flex-col items-center p-6 shadow-lg rounded-lg hover:scale-105 transform transition duration-300"
-          data-aos="zoom-in"
-          data-aos-delay="100"
-        >
-          <FaHtml5 className="text-6xl text-orange-500 mb-4" />
-          <h3 className="text-xl font-semibold">HTML5</h3>
-        </div>
-
-        <div 
-          className="flex flex-col items-center p-6 shadow-lg rounded-lg hover:scale-105 transform transition duration-300"
-          data-aos="zoom-in"
-          data-aos-delay="200"
-        >
-          <FaCss3Alt className="text-6xl text-blue-500 mb-4" />
-          <h3 className="text-xl font-semibold">CSS3</h3>
-        </div>
-
-        <div 
-          className="flex flex-col items-center p-6 shadow-lg rounded-lg hover:scale-105 transform transition duration-300"
-          data-aos="zoom-in"
-          data-aos-delay="300"
-        >
-          <FaJsSquare className="text-6xl text-yellow-400 mb-4" />
-          <h3 className="text-xl font-semibold">JavaScript</h3>
-        </div>
-
-        <div 
-          className="flex flex-col items-center p-6 shadow-lg rounded-lg hover:scale-105 transform transition duration-300"
-          data-aos="zoom-in"
-          data-aos-delay="400"
-        >
-          <FaReact className="text-6xl text-cyan-400 mb-4" />
-          <h3 className="text-xl font-semibold">React.js</h3>
-        </div>
-
-        <div 
-          className="flex flex-col items-center p-6 shadow-lg rounded-lg hover:scale-105 transform transition duration-300"
-          data-aos="zoom-in"
-          data-aos-delay="500"
-        >
-          <FaNodeJs className="text-6xl text-green-500 mb-4" />
-          <h3 className="text-xl font-semibold">Node.js</h3>
-        </div>
-
-        <div 
-          className="flex flex-col items-center p-6 shadow-lg rounded-lg hover:scale-105 transform transition duration-300"
-          data-aos="zoom-in"
-          data-aos-delay="600"
-        >
-          <FaDatabase className="text-6xl text-indigo-500 mb-4" />
-          <h3 className="text-xl font-semibold">MongoDB</h3>
-        </div>
+        
+        {/* Reusable Skill Card Component */}
+        {[
+          { Icon: FaHtml5, label: "HTML5", color: "text-orange-400" },
+          { Icon: FaCss3Alt, label: "CSS3", color: "text-cyan-400" },
+          { Icon: FaJsSquare, label: "JavaScript", color: "text-yellow-300" },
+          { Icon: FaReact, label: "React.js", color: "text-blue-400" },
+          { Icon: FaNodeJs, label: "Node.js", color: "text-green-400" },
+          { Icon: FaDatabase, label: "MongoDB", color: "text-indigo-300" },
+        ].map(({ Icon, label, color }, index) => (
+          <div 
+            key={index}
+            className="flex flex-col items-center bg-white/5 backdrop-blur-md p-6 rounded-xl hover:scale-105 transform transition duration-300 shadow-xl"
+            data-aos="zoom-in"
+            data-aos-delay={100 * (index + 1)}
+          >
+            <Icon className={`text-5xl mb-4 ${color}`} />
+            <h3 className="text-lg font-medium">{label}</h3>
+          </div>
+        ))}
 
       </div>
     </section>

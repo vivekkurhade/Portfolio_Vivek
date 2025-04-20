@@ -1,52 +1,50 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('');
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        'service_j028q18', // Your Service ID
-        'template_4pa8wx5', // Your Template ID
-        e.target,
-        'Jn9A9ZUrYUvyvRE7m' // Your User ID
-      )
-      .then(
-        () => {
-          setStatus('Message sent successfully!');
-          setFormData({ name: '', email: '', message: '' });
-        },
-        () => {
-          setStatus('Oops! Something went wrong.');
-        }
-      );
+    emailjs.sendForm(
+      'service_j028q18',
+      'template_4pa8wx5',
+      e.target,
+      'Jn9A9ZUrYUvyvRE7m'
+    )
+    .then(() => {
+      setStatus('Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+    })
+    .catch(() => {
+      setStatus('Oops! Something went wrong.');
+    });
   };
 
   return (
-    <section id="contact" className="py-16 bg-gray-100 overflow-x-hidden">
+    <section id="contact" className="py-20 bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] text-white overflow-x-hidden">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10">Contact Me</h2>
+      <h2 
+        className="text-4xl font-bold text-center mb-12 text-white" 
+        data-aos="fade-up"
+        style={{
+          textShadow: '0 0 1px rgba(255,255,255,0.7), 0 0 6px rgba(255,255,255,0.5)',
+          fontFamily: '"Special Gothic Expanded One", sans-serif',
+        }}
+      >
+        Contact Me
+      </h2>
 
         <form
-          className="flex flex-col space-y-6 bg-white p-6 sm:p-8 rounded-lg shadow-lg"
           onSubmit={handleSubmit}
+          className="bg-white/5 backdrop-blur-md p-8 rounded-2xl shadow-xl border border-white/10 space-y-6"
         >
           <input
             type="text"
@@ -54,7 +52,7 @@ function Contact() {
             placeholder="Your Name"
             value={formData.name}
             onChange={handleChange}
-            className="border p-3 sm:p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm sm:text-base"
+            className="w-full p-4 rounded-lg bg-white/10 text-white placeholder-gray-300 border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-200"
             required
           />
           <input
@@ -63,70 +61,39 @@ function Contact() {
             placeholder="Your Email"
             value={formData.email}
             onChange={handleChange}
-            className="border p-3 sm:p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm sm:text-base"
+            className="w-full p-4 rounded-lg bg-white/10 text-white placeholder-gray-300 border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-200"
             required
           />
           <textarea
             name="message"
+            rows="5"
             placeholder="Your Message"
             value={formData.message}
             onChange={handleChange}
-            rows="5"
-            className="border p-3 sm:p-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm sm:text-base resize-none"
+            className="w-full p-4 rounded-lg bg-white/10 text-white placeholder-gray-300 border border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-200 resize-none"
             required
           ></textarea>
           <button
             type="submit"
-            className="bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 transition text-sm sm:text-base"
+            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-indigo-500/50"
           >
             Send Message
           </button>
 
-          {/* Social Icons */}
-          <div className="flex justify-center mt-8 space-x-6 text-xl sm:text-2xl text-gray-700">
-            <a
-              href="https://github.com/vivekkurhade"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="hover:text-black"
-            >
+          <div className="flex justify-center mt-6 space-x-6 text-2xl text-white/80">
+            <a href="https://github.com/vivekkurhade" target="_blank" rel="noopener noreferrer" className="hover:text-white">
               <FaGithub />
             </a>
-            <a
-              href="https://www.linkedin.com/in/vivek-kurhade-05a30927b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="hover:text-blue-700"
-            >
+            <a href="https://www.linkedin.com/in/vivek-kurhade-05a30927b/" target="_blank" rel="noopener noreferrer" className="hover:text-white">
               <FaLinkedin />
             </a>
-            {/* Uncomment if needed
-            <a
-              href="https://twitter.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-              className="hover:text-blue-400"
-            >
-              <FaTwitter />
-            </a>
-            */}
           </div>
         </form>
 
-        {/* Status Message */}
         {status && (
-          <div
-            className={`mt-6 text-center text-sm sm:text-lg font-semibold ${
-              status === 'Message sent successfully!'
-                ? 'text-green-500'
-                : 'text-red-500'
-            }`}
-          >
+          <p className={`mt-6 text-center text-lg font-medium ${status.includes('successfully') ? 'text-green-400' : 'text-red-400'}`}>
             {status}
-          </div>
+          </p>
         )}
       </div>
     </section>

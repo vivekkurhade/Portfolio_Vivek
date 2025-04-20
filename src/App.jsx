@@ -1,3 +1,16 @@
+
+
+
+
+// Make the whole Webiste Neon 
+// Like black-bg and white glow text
+
+
+
+
+
+
+
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
@@ -12,7 +25,7 @@ import Contact from './components/Contact';
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // animation duration
+      duration: 500, // animation duration
       once: true, // animation happens only once
     });
   }, []);
