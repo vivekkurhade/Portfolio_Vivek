@@ -1,5 +1,5 @@
 import React from 'react';
-
+import profilePic from '../assets/profile.png';
 function About() {
   return (
     <section
@@ -15,9 +15,9 @@ function About() {
         >
           <div className="relative group w-64 h-64 sm:w-72 sm:h-72">
             <img
-              src="https://via.placeholder.com/400x400"
+              src={profilePic}
               alt="Profile"
-              className="rounded-full w-full h-full object-cover shadow-[0_0_20px_#ffffff33] group-hover:scale-105 transition-transform duration-500"
+              className="rounded-full w-full h-full object-cover shadow-[0_0_20px_#ffffff33] group-hover:scale-105 transition-transform duration-500 "
             />
             <div className="absolute inset-0 rounded-full bg-white opacity-5 group-hover:opacity-15 transition-opacity duration-500"></div>
           </div>
