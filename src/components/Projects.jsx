@@ -1,73 +1,113 @@
 import React from 'react';
 
-function Projects() {
-  const projects = [
-    {
-      title: "Portfolio Website",
-      description: "A personal portfolio built with React and Tailwind CSS.",
-      image: "https://via.placeholder.com/300x200",
-      link: "#",
-    },
-    {
-      title: "E-commerce App",
-      description: "A full-stack MERN application for online shopping.",
-      image: "https://via.placeholder.com/300x200",
-      link: "#",
-    },
-    {
-      title: "Blog Platform",
-      description: "A dynamic blog platform using Node.js, Express, and MongoDB.",
-      image: "https://via.placeholder.com/300x200",
-      link: "#",
-    },
-  ];
+const webProjects = [
+  {
+    title: "Portfolio Website",
+    description: "A responsive portfolio showcasing my skills and projects.",
+    image: "https://via.placeholder.com/300x200",
+    link: "#",
+  },
+  {
+    title: "E-commerce App",
+    description: "An online store with shopping cart and payment integration.",
+    image: "https://via.placeholder.com/300x200",
+    link: "#",
+  },
+  {
+    title: "Blog Platform",
+    description: "A full-stack blog platform with authentication.",
+    image: "https://via.placeholder.com/300x200",
+    link: "#",
+  },
+];
 
+const videoProjects = [
+  {
+    title: "Showreel Edit",
+    description: "Short cinematic edits for creators and brands.",
+    image: "https://via.placeholder.com/300x200",
+    link: "#",
+  },
+  {
+    title: "YouTube Thumbnails",
+    description: "Creative thumbnails designed to boost views.",
+    image: "https://via.placeholder.com/300x200",
+    link: "#",
+  },
+];
+
+export default function Projects() {
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-[#2b2556] via-[#302b63] to-[#24243e]
- text-white">
-      <h2 
-        className="text-4xl font-bold text-center mb-12 text-white" 
-        data-aos="fade-up"
+    <section id="projects" className="py-20 bg-gradient-to-b from-[#2b2556] via-[#302b63] to-[#24243e] text-white">
+      <h2
+        className="text-4xl font-bold text-center mb-16"
         style={{
           textShadow: '0 0 1px rgba(255,255,255,0.7), 0 0 6px rgba(255,255,255,0.5)',
           fontFamily: '"Special Gothic Expanded One", sans-serif',
         }}
+        data-aos="fade-up"
       >
         My Projects
       </h2>
 
-
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
-        {projects.map((project, index) => (
-          <div 
-            key={index} 
-            className="relative group overflow-hidden rounded-2xl bg-[#1a1a1a] shadow-[0_4px_30px_rgba(0,255,255,0.1)]"
-            data-aos="fade-up"
-            data-aos-delay={index * 100}
-          >
-            <img 
-              src={project.image} 
-              alt={project.title} 
-              className="w-full h-60 object-cover group-hover:scale-105 transition-transform duration-500" 
-            />
-
-            <div className="absolute inset-0 bg-black bg-opacity-70 opacity-0 group-hover:opacity-100 flex flex-col justify-center items-center transition-opacity duration-500 text-white p-6">
-              <h3 className="text-2xl font-bold mb-2 text-indigo-400">{project.title}</h3>
-              <p className="text-sm mb-4 text-center">{project.description}</p>
-              <a 
-                href={project.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="bg-indigo-500 px-4 py-2 rounded-lg hover:bg-indigo-600 transform hover:scale-105 transition-all duration-300"
-              >
-                View Project
-              </a>
+      {/* Web Development Projects */}
+      <div className="max-w-7xl mx-auto px-6 mb-20">
+        <h3 className="text-3xl font-bold mb-8" data-aos="fade-right">Web Development</h3>
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          {webProjects.map((project, index) => (
+            <div
+              key={index}
+              className="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:scale-105 transform transition duration-500 ease-in-out hover:border hover:border-cyan-400 shadow-lg hover:brightness-110"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <img src={project.image} alt={project.title} className="w-full h-48 object-cover transition duration-500 ease-in-out transform group-hover:scale-105" />
+              <div className="p-6">
+                <h4 className="text-2xl font-semibold mb-2">{project.title}</h4>
+                <p className="text-gray-300 mb-4">{project.description}</p>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan-400 hover:underline transition-all duration-300"
+                >
+                  View Project →
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
+
+      {/* Video Editing Projects */}
+      <div className="max-w-7xl mx-auto px-6">
+        <h3 className="text-3xl font-bold mb-8" data-aos="fade-right">Video Editing</h3>
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          {videoProjects.map((project, index) => (
+            <div
+              key={index}
+              className="bg-white/10 backdrop-blur-md rounded-xl overflow-hidden hover:scale-105 transform transition duration-500 ease-in-out hover:border hover:border-pink-400 shadow-lg hover:brightness-110"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <img src={project.image} alt={project.title} className="w-full h-48 object-cover transition duration-500 ease-in-out transform group-hover:scale-105" />
+              <div className="p-6">
+                <h4 className="text-2xl font-semibold mb-2">{project.title}</h4>
+                <p className="text-gray-300 mb-4">{project.description}</p>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-pink-400 hover:underline transition-all duration-300"
+                >
+                  View Project →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </section>
   );
 }
-
-export default Projects;

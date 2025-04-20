@@ -96,7 +96,7 @@ function Hero() {
         </h1>
 
         <p
-          className="text-lg sm:text-1xl mb-8 text-indigo-400 max-w-2xl mx-auto font-sans"
+          className="text-lg sm:text-1xl mb-8 text-cyan-400 max-w-2xl mx-auto font-sans"
           data-aos="fade-up"
           data-aos-delay="200"
         >
