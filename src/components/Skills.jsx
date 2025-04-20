@@ -5,7 +5,8 @@ function Skills() {
   return (
     <section 
       id="skills" 
-      className="py-20 bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e]
+      className="py-20 bg-gradient-to-b from-[#0f0c29] via-[#1d1a3f] to-[#2b2556]
+
  text-white"
     >
       <h2 

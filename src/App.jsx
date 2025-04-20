@@ -34,8 +34,10 @@ function App() {
     <div className="App">
       <Navbar />
       <Hero />
+      <div className='bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e]'>
       <Skills />
       <Projects />
+      </div>
       <About />
       <Contact />
     </div>

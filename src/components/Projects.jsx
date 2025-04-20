@@ -23,7 +23,8 @@ function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e] text-white">
+    <section id="projects" className="py-20 bg-gradient-to-b from-[#2b2556] via-[#302b63] to-[#24243e]
+ text-white">
       <h2 
         className="text-4xl font-bold text-center mb-12 text-white" 
         data-aos="fade-up"
